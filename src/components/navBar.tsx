@@ -13,7 +13,7 @@ export default function NavBar (){
     const [showSubPage, setShowSubPage] = useState('')
 
     return(
-        <div className="w-full bg-gray-600 py-3 px-12" onMouseEnter={() => console.log('oiai')}>
+        <div className="w-full bg-gray-600 py-3 px-12">
             <div className='w-full flex justify-between'>
                 <div>
                     <Link href={'/'} className='px-3 py-3 hover:text-white'>
@@ -34,21 +34,20 @@ export default function NavBar (){
                         element.childrens.length > 0 && showSubPage === element.value?
 
                         <div className='absolute bg-gray-400 text-center rounded-md py-2
-                        left-[50%] transform -translate-x-[50%] top-full mt-3' >
-                            <ul className='flex flex-col gap-3'>
+                        left-[50%] transform -translate-x-[50%] top-full mt-3'>
+                        <ul className='flex flex-col gap-3'>
                             {
                                 element.childrens.map((childElement) => {
                                     return(
-                                        <li className='hover:text-white'>
-                                            <Link href={childElement.path} key={childElement.value}
-                                            className='px-6 py-3'>
+                                        <li className='hover:text-white' key={childElement.value}>
+                                            <Link href={childElement.path} className='px-6 py-3'>
                                             {childElement.label}
                                             </Link>
                                         </li>
                                     )
                                 })
                             }
-                            </ul>
+                        </ul>
                         </div>
                         :null
                         }
