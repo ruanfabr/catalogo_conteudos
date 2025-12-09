@@ -31,11 +31,4 @@ export const paths = [
         path: '/catalogo/series',
         visible: true
     },
-    {
-        label:'register',
-        value: 'login-register',
-        parent:'login',
-        path: '/login/register',
-        visible: true
-    },
 ]

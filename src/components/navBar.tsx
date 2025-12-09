@@ -13,38 +13,35 @@ export default function NavBar (){
     const [showSubPage, setShowSubPage] = useState('')
 
     return(
-        <div className="w-full bg-gray-600 py-2 px-6" onMouseEnter={() => console.log('oiai')}>
+        <div className="w-full bg-gray-600 py-3 px-12" onMouseEnter={() => console.log('oiai')}>
             <div className='w-full flex justify-between'>
                 <div>
                     <Link href={'/'}>
                         Homepage
                     </Link>
                 </div>
-                <div className='flex gap-5'>
+                <div className='flex gap-10'>
                 {
                 rotas.map((element) => {
                     return (
-                    <div className='w-fit h-full relative px-2 py-1 bg-green-300' key={element.value} onMouseEnter={() => {setShowSubPage(`${element.value}`)}} onMouseLeave={() => {setShowSubPage('')}}>
-                        <Link href={element.path} key={element.value}>
+                    <div className='w-fit h-full relative' key={element.value} onMouseEnter={() => {setShowSubPage(`${element.value}`)}} onMouseLeave={() => {setShowSubPage('')}}>
+                        <Link href={element.path} key={element.value}
+                        className='hover:text-white py-4 px-2'>
                         {element.label}
                         </Link>
 
                         {
                         element.childrens.length > 0 && showSubPage === element.value?
-                        
-                        // <div className='absolute bg-pink-200 left-0 top-0' onMouseLeave={() => {setShowSubPage('')}}>
-                        // <div className='bg-gray-400 text-center rounded-md py-2 px-4
-                        // mt-5 top-full gap-y-1' >
 
-                        <div className='absolute bg-gray-400 text-center rounded-md py-2 px-4
-                        left-[50%] transform -translate-x-[50%] top-full gap-y-1' onMouseLeave={() => {setShowSubPage('')}}>
-                            <div className='mt-9'>
-                            <ul>
+                        <div className='absolute bg-gray-400 text-center rounded-md py-2
+                        left-[50%] transform -translate-x-[50%] top-full mt-3' >
+                            <ul className='flex flex-col gap-3'>
                             {
                                 element.childrens.map((childElement) => {
                                     return(
                                         <li className='hover:text-white'>
-                                            <Link href={childElement.path} key={childElement.value}>
+                                            <Link href={childElement.path} key={childElement.value}
+                                            className='px-6 py-3'>
                                             {childElement.label}
                                             </Link>
                                         </li>
@@ -52,7 +49,6 @@ export default function NavBar (){
                                 })
                             }
                             </ul>
-                            </div>
                         </div>
                         :null
                         }
