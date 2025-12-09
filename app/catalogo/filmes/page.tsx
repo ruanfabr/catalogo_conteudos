@@ -4,7 +4,7 @@
 export default function Filmes(){
 
     return(
-        <div className="h-[80rem]">
+        <div className="">
             eeeeaaaaeeeee galeeeeera
         </div>
     )

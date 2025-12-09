@@ -16,7 +16,7 @@ export default function NavBar (){
         <div className="w-full bg-gray-600 py-3 px-12" onMouseEnter={() => console.log('oiai')}>
             <div className='w-full flex justify-between'>
                 <div>
-                    <Link href={'/'}>
+                    <Link href={'/'} className='px-3 py-3 hover:text-white'>
                         Homepage
                     </Link>
                 </div>
