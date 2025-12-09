@@ -12,10 +12,8 @@ export default function NavBar (){
 
     const [showSubPage, setShowSubPage] = useState('')
 
-    console.log(rotas)
-
     return(
-        <div className="w-full bg-gray-600 py-3 px-6">
+        <div className="w-full bg-gray-600 py-2 px-6" onMouseEnter={() => console.log('oiai')}>
             <div className='w-full flex justify-between'>
                 <div>
                     <Link href={'/'}>
@@ -26,15 +24,21 @@ export default function NavBar (){
                 {
                 rotas.map((element) => {
                     return (
-                    <div className='w-fit h-full relative' key={element.value} onMouseEnter={() => {setShowSubPage(`${element.value}`)}} onMouseLeave={() => {setShowSubPage('')}}>
+                    <div className='w-fit h-full relative px-2 py-1 bg-green-300' key={element.value} onMouseEnter={() => {setShowSubPage(`${element.value}`)}} onMouseLeave={() => {setShowSubPage('')}}>
                         <Link href={element.path} key={element.value}>
                         {element.label}
                         </Link>
 
                         {
                         element.childrens.length > 0 && showSubPage === element.value?
+                        
+                        // <div className='absolute bg-pink-200 left-0 top-0' onMouseLeave={() => {setShowSubPage('')}}>
+                        // <div className='bg-gray-400 text-center rounded-md py-2 px-4
+                        // mt-5 top-full gap-y-1' >
+
                         <div className='absolute bg-gray-400 text-center rounded-md py-2 px-4
-                        left-[50%] transform -translate-x-[50%] top-[100%] mt-3 gap-y-1'>
+                        left-[50%] transform -translate-x-[50%] top-full gap-y-1' onMouseLeave={() => {setShowSubPage('')}}>
+                            <div className='mt-9'>
                             <ul>
                             {
                                 element.childrens.map((childElement) => {
@@ -48,6 +52,7 @@ export default function NavBar (){
                                 })
                             }
                             </ul>
+                            </div>
                         </div>
                         :null
                         }
